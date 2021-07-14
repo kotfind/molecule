@@ -2,6 +2,7 @@
 #define ENGINE_H
 
 #include "../vec/vec.h"
+#include "../Atom/Atom.h"
 
 #include <SDL2/SDL.h>
 
@@ -11,7 +12,7 @@ class Engine {
         ~Engine();
         void input();
         void start();
-        auto toScreenCoords(const vec& v) -> std::pair<int, int>;
+        auto toScreenCoords(const vec& v) const -> std::pair<int, int>;
 
     private:
         SDL_Window* win_ = nullptr;
@@ -19,6 +20,8 @@ class Engine {
         bool run_;
         const double ZNEAR_ = 1.;
         std::pair<int, int> screen_size_;
+
+    friend Atom;
 };
 
 #endif

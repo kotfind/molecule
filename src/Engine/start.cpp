@@ -1,12 +1,14 @@
 #include "Engine.h"
 
-#include "../Atom/Atom.h"
+#include "../Molecule/Molecule.h"
 
 #include <SDL2/SDL.h>
 #include <iostream>
 
 void Engine::start() {
-    Atom a({0., 0., 1.});
+    auto* m = new Molecule();
+    m->atoms.push_back({{0., 0., 1.}});
+    m->atoms.push_back({{0., 0.1, 10.}});
     while (run_) {
         input();
 
@@ -17,10 +19,7 @@ void Engine::start() {
         SDL_GetRendererOutputSize(ren_, &screen_size_.first,
                 &screen_size_.second);
         
-        auto v = toScreenCoords(a.project(ZNEAR_));
-        SDL_SetRenderDrawColor(ren_, 0xff, 0xff, 0xff, 0xff);
-        SDL_RenderDrawLine(ren_, v.first - 2, v.second - 2,
-                                 v.first + 2, v.second + 2);
+        m->draw(*this);
 
         SDL_RenderPresent(ren_);
     }

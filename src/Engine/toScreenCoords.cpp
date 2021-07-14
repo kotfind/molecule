@@ -6,7 +6,7 @@
 
 using namespace std;
 
-auto Engine::toScreenCoords(const vec& v) -> pair<int, int> {
+auto Engine::toScreenCoords(const vec& v) const -> pair<int, int> {
     const vec screen_size =
         {(double)screen_size_.first,
          (double)screen_size_.second, 0.};

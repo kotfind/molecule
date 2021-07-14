@@ -16,6 +16,9 @@ set(CMAKE_EXPORT_COMPILE_COMMANDS on)
 add_executable(main
     src/Atom/project.cpp
     src/Atom/Atom.cpp
+    src/Atom/draw.cpp
+    src/Molecule/Molecule.cpp
+    src/Molecule/draw.cpp
     src/main.cpp
     src/Engine/start.cpp
     src/Engine/Engine.cpp
