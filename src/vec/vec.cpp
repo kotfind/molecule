@@ -8,6 +8,16 @@ vec::vec(const double& x, const double& y, const double& z) :
     x(x), y(y), z(z) {}
 vec::vec(const vec& v) : x(v.x), y(v.y), z(v.z) {}
 
+std::istream& operator>>(std::istream& in, vec& v) {
+    in >> v.x >> v.y >> v.z;
+    return in;
+}
+
+std::ostream& operator<<(std::ostream& out, vec& v) {
+    out << v.x << ' ' << v.y << ' ' << v.z;
+    return out;
+}
+
 vec& vec::operator=(const vec& v) {
     x = v.x;
     y = v.y;

@@ -17,7 +17,9 @@ add_executable(main
     src/Atom/project.cpp
     src/Atom/Atom.cpp
     src/Atom/draw.cpp
+    src/Molecule/insert.cpp
     src/Molecule/Molecule.cpp
+    src/Molecule/load.cpp
     src/Molecule/draw.cpp
     src/main.cpp
     src/Engine/start.cpp

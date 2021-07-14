@@ -1,4 +1,4 @@
 #include "Atom.h"
 
-Atom::Atom() : pos_() {}
-Atom::Atom(const vec& pos) : pos_(pos) {}
+Atom::Atom(const std::string& name, int type, const vec& pos)
+    : name_(name), type_(type), pos_(pos) {}

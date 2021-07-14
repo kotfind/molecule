@@ -2,6 +2,8 @@
 #define VEC_H
 
 #include <math.h>
+#include <istream>
+#include <ostream>
 
 struct vec {
     vec();
@@ -17,6 +19,9 @@ struct vec {
 
     double x, y, z;
 };
+
+std::istream& operator>>(std::istream& in, vec& v);
+std::ostream& operator<<(std::ostream& out, vec& v);
 
 vec operator+(const vec& lhs, const vec& rhs);
 vec operator-(const vec& lhs, const vec& rhs);

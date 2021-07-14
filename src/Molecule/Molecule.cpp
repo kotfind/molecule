@@ -1,3 +1,7 @@
 #include "Molecule.h"
 
-Molecule::Molecule() : atoms() {}
+#include <string>
+
+Molecule::Molecule(const std::string& filename) : atoms() {
+    load(filename);
+}

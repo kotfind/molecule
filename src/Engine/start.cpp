@@ -6,9 +6,7 @@
 #include <iostream>
 
 void Engine::start() {
-    auto* m = new Molecule();
-    m->atoms.push_back({{0., 0., 1.}});
-    m->atoms.push_back({{0., 0.1, 10.}});
+    auto* m = new Molecule("/home/kotfind/prog/c++/molecule/res/c60.ort");
     while (run_) {
         input();
 
