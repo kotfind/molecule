@@ -1,5 +1,5 @@
 #include "Molecule.h"
 
-void Molecule::insert(const Atom& atom) {
+void Molecule::insert(Atom* const atom) {
     atoms.push_back(atom);
 }

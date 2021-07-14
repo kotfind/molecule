@@ -28,7 +28,7 @@ void Molecule::load(const string& filename) {
             ss >> type;
             vec pos;
             ss >> pos;
-            insert({name, type, pos});
+            insert(new Atom(name, type, pos));
         }
     }
 }

@@ -11,12 +11,13 @@ class Engine;
 class Molecule {
     public:
         Molecule(const std::string& filename);
+        ~Molecule();
         void draw(const Engine& engine) const;
         void load(const std::string& filename);
-        void insert(const Atom& atom);
+        void insert(Atom* atom);
 
     private:
-        std::vector<Atom> atoms;
+        std::vector<Atom*> atoms;
 };
 
 #endif

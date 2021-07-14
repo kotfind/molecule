@@ -3,7 +3,7 @@
 #include "../Engine/Engine.h"
 
 void Molecule::draw(const Engine& engine) const {
-    for (const Atom& atom : atoms) {
-        atom.draw(engine);
+    for (Atom* const atom : atoms) {
+        atom->draw(engine);
     }
 }
