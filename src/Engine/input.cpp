@@ -9,32 +9,53 @@ void Engine::input() {
     }
 
     const auto* key = SDL_GetKeyboardState(nullptr);
+    bool a, b;
 
-    if (key[SDL_SCANCODE_EQUALS] && key[SDL_SCANCODE_MINUS]) {
-    } else if (key[SDL_SCANCODE_EQUALS]) {
+    a = key[SDL_SCANCODE_EQUALS];
+    b = key[SDL_SCANCODE_MINUS];
+    if (a & (a ^ b)) {
         ZNEAR_ *= 1.1;
-    } else if (key[SDL_SCANCODE_MINUS]) {
+    } else if (b & (a ^ b)) {
         ZNEAR_ /= 1.1;
     }
 
-    if (key[SDL_SCANCODE_A] && key[SDL_SCANCODE_D]) {
-    } else if (key[SDL_SCANCODE_A]) {
+    a = key[SDL_SCANCODE_LEFT];
+    b = key[SDL_SCANCODE_RIGHT];
+    if (a & (a ^ b)) {
         camera_pos_ += {xspeed, 0., 0.};
-    } else if (key[SDL_SCANCODE_D]) {
+    } else if (b & (a ^ b)) {
         camera_pos_ -= {xspeed, 0., 0.};
     }
 
-    if (key[SDL_SCANCODE_W] && key[SDL_SCANCODE_S]) {
-    } else if (key[SDL_SCANCODE_W]) {
+    a = key[SDL_SCANCODE_UP];
+    b = key[SDL_SCANCODE_DOWN];
+    if (a & (a ^ b)) {
         camera_pos_ -= {0., 0., zspeed};
-    } else if (key[SDL_SCANCODE_S]) {
+    } else if (b & (a ^ b)) {
         camera_pos_ += {0., 0., zspeed};
     }
 
-    if (key[SDL_SCANCODE_Q] && key[SDL_SCANCODE_E]) {
-    } else if (key[SDL_SCANCODE_Q]) {
+    a = key[SDL_SCANCODE_W];
+    b = key[SDL_SCANCODE_S];
+    if (a & (a ^ b)) {
+        matrix_ *= Matrix::xrotation(xangle);
+    } else if (b & (a ^ b)) {
+        matrix_ *= Matrix::xrotation(-xangle);
+    }
+
+    a = key[SDL_SCANCODE_A];
+    b = key[SDL_SCANCODE_D];
+    if (a & (a ^ b)) {
         matrix_ *= Matrix::yrotation(yangle);
-    } else if (key[SDL_SCANCODE_E]) {
+    } else if (b & (a ^ b)) {
         matrix_ *= Matrix::yrotation(-yangle);
+    }
+
+    a = key[SDL_SCANCODE_Q];
+    b = key[SDL_SCANCODE_E];
+    if (a & (a ^ b)) {
+        matrix_ *= Matrix::zrotation(zangle);
+    } else if (b & (a ^ b)) {
+        matrix_ *= Matrix::zrotation(-zangle);
     }
 }

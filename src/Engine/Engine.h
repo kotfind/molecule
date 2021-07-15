@@ -24,9 +24,13 @@ class Engine {
         std::pair<int, int> screen_size_;
 
         vec camera_pos_ = {0., 0., 5.};
+
         const double xspeed = 0.3;
         const double zspeed = 0.4;
-        const double yangle = 0.1;
+
+        const double xangle = 0.05;
+        const double yangle = 0.05;
+        const double zangle = 0.05;
 
         Matrix matrix_ = Matrix::unit(3);
 
