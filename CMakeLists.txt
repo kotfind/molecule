@@ -18,6 +18,9 @@ add_executable(main
     src/Atom/Atom.cpp
     src/Atom/visible.cpp
     src/Atom/draw.cpp
+    src/Matrix/unit.cpp
+    src/Matrix/Matrix.cpp
+    src/Matrix/rotation.cpp
     src/Molecule/insert.cpp
     src/Molecule/Molecule.cpp
     src/Molecule/load.cpp

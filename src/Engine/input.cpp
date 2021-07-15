@@ -30,4 +30,11 @@ void Engine::input() {
     } else if (key[SDL_SCANCODE_S]) {
         camera_pos_ += {0., 0., zspeed};
     }
+
+    if (key[SDL_SCANCODE_Q] && key[SDL_SCANCODE_E]) {
+    } else if (key[SDL_SCANCODE_Q]) {
+        matrix_ *= Matrix::yrotation(yangle);
+    } else if (key[SDL_SCANCODE_E]) {
+        matrix_ *= Matrix::yrotation(-yangle);
+    }
 }

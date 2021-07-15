@@ -4,6 +4,7 @@
 #include "../vec/vec.h"
 #include "../Atom/Atom.h"
 #include "../Bond/Bond.h"
+#include "../Matrix/Matrix.h"
 
 #include <SDL2/SDL.h>
 
@@ -25,6 +26,9 @@ class Engine {
         vec camera_pos_ = {0., 0., 5.};
         const double xspeed = 0.3;
         const double zspeed = 0.4;
+        const double yangle = 0.1;
+
+        Matrix matrix_ = Matrix::unit(3);
 
     friend Atom;
     friend Bond;
