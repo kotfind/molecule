@@ -13,6 +13,7 @@ struct Atom {
 
     auto project(const Engine& engine) const -> std::pair<int, int>;
     void draw(const Engine& engine) const;
+    bool visible(const Engine& engine) const;
 
     const std::string name_;
     const int type_;

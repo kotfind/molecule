@@ -19,8 +19,12 @@ class Engine {
         SDL_Window* win_ = nullptr;
         SDL_Renderer* ren_ = nullptr;
         bool run_;
-        double ZNEAR_ = 0.01;
+        double ZNEAR_ = 1.;
         std::pair<int, int> screen_size_;
+
+        vec camera_pos_ = {0., 0., 5.};
+        const double xspeed = 0.3;
+        const double zspeed = 0.4;
 
     friend Atom;
     friend Bond;
