@@ -1,6 +1,8 @@
 #include "Atom.h"
 
-vec Atom::project(const double& ZNEAR) const {
+#include "../Engine/Engine.h"
+
+auto Atom::project(const Engine& engine) const -> std::pair<int, int> {
     assert(pos_.z != 0);
-    return pos_ / pos_.z * ZNEAR;
+    return engine.toScreenCoords(pos_ / pos_.z * engine.ZNEAR_);
 }

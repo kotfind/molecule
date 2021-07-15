@@ -11,7 +11,7 @@ class Engine;
 struct Atom {
     Atom(const std::string& name, int type, const vec& pos);
 
-    vec project(const double& ZNEAR) const;
+    auto project(const Engine& engine) const -> std::pair<int, int>;
     void draw(const Engine& engine) const;
 
     const std::string name_;

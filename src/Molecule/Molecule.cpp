@@ -2,12 +2,16 @@
 
 #include <string>
 
-Molecule::Molecule(const std::string& filename) : atoms() {
+Molecule::Molecule(const std::string& filename)
+    : atoms(), bonds() {
     load(filename);
 }
 
 Molecule::~Molecule() {
-    for (Atom* const atom : atoms) {
+    for (const auto& [name, atom] : atoms) {
         delete atom;
+    }
+    for (Bond* const bond : bonds) {
+        delete bond;
     }
 }

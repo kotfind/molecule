@@ -3,6 +3,7 @@
 
 #include "../vec/vec.h"
 #include "../Atom/Atom.h"
+#include "../Bond/Bond.h"
 
 #include <SDL2/SDL.h>
 
@@ -18,10 +19,11 @@ class Engine {
         SDL_Window* win_ = nullptr;
         SDL_Renderer* ren_ = nullptr;
         bool run_;
-        const double ZNEAR_ = 1.;
+        double ZNEAR_ = 0.01;
         std::pair<int, int> screen_size_;
 
     friend Atom;
+    friend Bond;
 };
 
 #endif

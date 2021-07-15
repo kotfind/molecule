@@ -22,6 +22,9 @@ void Molecule::load(const string& filename) {
         } else if (cmd == "MPLN") {
         } else if (cmd == "UNDO") {
         } else if (cmd == "LINK") {
+            string a, b;
+            ss >> a >> b;
+            insert(new Bond(atoms[a], atoms[b]));
         } else {
             const string& name = cmd;
             int type;

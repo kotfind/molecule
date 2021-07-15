@@ -22,6 +22,8 @@ add_executable(main
     src/Molecule/load.cpp
     src/Molecule/draw.cpp
     src/main.cpp
+    src/Bond/draw.cpp
+    src/Bond/Bond.cpp
     src/Engine/start.cpp
     src/Engine/Engine.cpp
     src/Engine/input.cpp

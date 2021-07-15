@@ -6,7 +6,7 @@
 #include <iostream>
 
 void Engine::start() {
-    auto* m = new Molecule("/home/kotfind/prog/c++/molecule/res/c60.ort");
+    const auto* const m = new Molecule("/home/kotfind/prog/c++/molecule/res/c60.ort");
     while (run_) {
         input();
 
@@ -21,4 +21,5 @@ void Engine::start() {
 
         SDL_RenderPresent(ren_);
     }
+    delete m;
 }
