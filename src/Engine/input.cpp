@@ -35,6 +35,14 @@ void Engine::input() {
         camera_pos_ -= {0., 0., zspeed};
     }
 
+    a = key[SDL_SCANCODE_LSHIFT];
+    b = key[SDL_SCANCODE_LCTRL];
+    if (a & (a ^ b)) {
+        camera_pos_ += {0., yspeed, 0.};
+    } else if (b & (a ^ b)) {
+        camera_pos_ -= {0., yspeed, 0.};
+    }
+
     a = key[SDL_SCANCODE_W];
     b = key[SDL_SCANCODE_S];
     if (a & (a ^ b)) {

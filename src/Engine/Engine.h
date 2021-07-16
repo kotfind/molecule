@@ -26,6 +26,7 @@ class Engine {
         vec camera_pos_ = {0., 0., 5.};
 
         const double xspeed = 0.3;
+        const double yspeed = 0.3;
         const double zspeed = 0.4;
 
         const double xangle = 0.05;
