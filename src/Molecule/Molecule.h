@@ -7,6 +7,7 @@
 #include <map>
 #include <list>
 #include <string>
+#include <vector>
 
 class Engine;
 
@@ -20,8 +21,9 @@ class Molecule {
         void insert(Bond* const bond);
 
     private:
-        std::map<std::string, Atom*> atoms;
-        std::list<Bond*> bonds;
+        std::map<std::string, Atom*> atoms_;
+        std::list<Bond*> bonds_;
+        std::vector<std::string> sfac_;
 };
 
 #endif

@@ -22,17 +22,17 @@ void Engine::input() {
     a = key[SDL_SCANCODE_LEFT];
     b = key[SDL_SCANCODE_RIGHT];
     if (a & (a ^ b)) {
-        camera_pos_ += {xspeed, 0., 0.};
-    } else if (b & (a ^ b)) {
         camera_pos_ -= {xspeed, 0., 0.};
+    } else if (b & (a ^ b)) {
+        camera_pos_ += {xspeed, 0., 0.};
     }
 
     a = key[SDL_SCANCODE_UP];
     b = key[SDL_SCANCODE_DOWN];
     if (a & (a ^ b)) {
-        camera_pos_ -= {0., 0., zspeed};
-    } else if (b & (a ^ b)) {
         camera_pos_ += {0., 0., zspeed};
+    } else if (b & (a ^ b)) {
+        camera_pos_ -= {0., 0., zspeed};
     }
 
     a = key[SDL_SCANCODE_W];

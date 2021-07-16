@@ -6,11 +6,11 @@
 #include <iostream>
 
 void Engine::start() {
-    const auto* const m = new Molecule("/home/kotfind/prog/c++/molecule/res/c60.ort");
+    const auto* const molecule = new Molecule("/home/kotfind/prog/c++/molecule/res/f18.ort");
     while (run_) {
         input();
 
-        SDL_SetRenderDrawColor(ren_, 0x00, 0x00, 0x00, 0x00);
+        SDL_SetRenderDrawColor(ren_, 0x99, 0x99, 0x99, 0xFF);
 
         SDL_RenderClear(ren_);
 
@@ -25,12 +25,12 @@ void Engine::start() {
         Bond ybond(&zero, &yaxis);
         Bond zbond(&zero, &zaxis);
         
-        m->draw(*this);
+        molecule->draw(*this);
         xbond.draw(*this);
         ybond.draw(*this);
         zbond.draw(*this);
 
         SDL_RenderPresent(ren_);
     }
-    delete m;
+    delete molecule;
 }

@@ -17,6 +17,10 @@ void Molecule::load(const string& filename) {
         if (cmd == "TITL") {
         } else if (cmd == "CELL") {
         } else if (cmd == "SFAC") {
+            string name;
+            while (ss >> name) {
+                sfac_.push_back(name);
+            }
         } else if (cmd == "END") {
         } else if (cmd == "FMOL") {
         } else if (cmd == "MPLN") {
@@ -24,14 +28,16 @@ void Molecule::load(const string& filename) {
         } else if (cmd == "LINK") {
             string a, b;
             ss >> a >> b;
-            insert(new Bond(atoms[a], atoms[b]));
+            insert(new Bond(atoms_[a], atoms_[b]));
         } else {
             const string& name = cmd;
             int type;
             ss >> type;
+            --type;
             vec pos;
             ss >> pos;
             insert(new Atom(name, type, pos));
         }
     }
+    fin.close();
 }
