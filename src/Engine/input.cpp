@@ -38,25 +38,25 @@ void Engine::input() {
     a = key[SDL_SCANCODE_W];
     b = key[SDL_SCANCODE_S];
     if (a & (a ^ b)) {
-        matrix_ *= Matrix::xrotation(xangle);
+        matrix_ = Matrix::xrotation(xangle) * matrix_;
     } else if (b & (a ^ b)) {
-        matrix_ *= Matrix::xrotation(-xangle);
+        matrix_ = Matrix::xrotation(-xangle) * matrix_;
     }
 
     a = key[SDL_SCANCODE_A];
     b = key[SDL_SCANCODE_D];
     if (a & (a ^ b)) {
-        matrix_ *= Matrix::yrotation(yangle);
+        matrix_ = Matrix::yrotation(yangle) * matrix_;
     } else if (b & (a ^ b)) {
-        matrix_ *= Matrix::yrotation(-yangle);
+        matrix_ = Matrix::yrotation(-yangle) * matrix_;
     }
 
     a = key[SDL_SCANCODE_Q];
     b = key[SDL_SCANCODE_E];
     if (a & (a ^ b)) {
-        matrix_ *= Matrix::zrotation(zangle);
+        matrix_ = Matrix::zrotation(zangle) * matrix_;
     } else if (b & (a ^ b)) {
-        matrix_ *= Matrix::zrotation(-zangle);
+        matrix_ = Matrix::zrotation(-zangle) * matrix_;
     }
 
     if (key[SDL_SCANCODE_R]) {
