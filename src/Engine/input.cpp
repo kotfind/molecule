@@ -58,4 +58,8 @@ void Engine::input() {
     } else if (b & (a ^ b)) {
         matrix_ *= Matrix::zrotation(-zangle);
     }
+
+    if (key[SDL_SCANCODE_R]) {
+        matrix_ = Matrix::unit(3);
+    }
 }
