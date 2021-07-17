@@ -14,6 +14,7 @@ set(CMAKE_CXX_FLAGS_RELEASE "${CMAKE_CXX_FLAGS} -O3 -g0")
 set(CMAKE_EXPORT_COMPILE_COMMANDS on)
 
 add_executable(main
+    src/atomValues.cpp
     src/Atom/project.cpp
     src/Atom/Atom.cpp
     src/Atom/visible.cpp
@@ -22,6 +23,7 @@ add_executable(main
     src/Matrix/Matrix.cpp
     src/Matrix/rotation.cpp
     src/Molecule/insert.cpp
+    src/Molecule/generateBonds.cpp
     src/Molecule/Molecule.cpp
     src/Molecule/load.cpp
     src/Molecule/draw.cpp

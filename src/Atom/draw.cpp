@@ -1,10 +1,12 @@
 #include "Atom.h"
 
 #include "../Engine/Engine.h"
-#include "../atomColours.h"
 
 #include <vector>
 #include <string>
+#include <unordered_map>
+
+extern std::unordered_map<std::string, std::tuple<char, char, char>> atomColours;
 
 void Atom::draw(const Engine& engine, const std::vector<std::string>& sfac) const {
     if (!visible(engine)) return;

@@ -21,6 +21,8 @@ class Molecule {
         void insert(Bond* const bond);
 
     private:
+        void generateBonds();
+
         std::map<std::string, Atom*> atoms_;
         std::list<Bond*> bonds_;
         std::vector<std::string> sfac_;
