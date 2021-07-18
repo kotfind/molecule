@@ -11,5 +11,5 @@ std::unordered_map<std::string, std::tuple<char, char, char>> atomColours = {
 std::unordered_map<std::string, double> atomRadii = {
     {"C", .77},
     {"H", .32},
-    {"F", .72},
+    {"F", .65},
 };

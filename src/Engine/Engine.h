@@ -8,6 +8,8 @@
 
 #include <SDL2/SDL.h>
 
+class Molecule;
+
 class Engine {
     public:
         Engine();
@@ -37,6 +39,7 @@ class Engine {
 
     friend Atom;
     friend Bond;
+    friend Molecule;
 };
 
 #endif

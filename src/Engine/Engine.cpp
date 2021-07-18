@@ -17,7 +17,8 @@ Engine::Engine() {
             SDL_RENDERER_ACCELERATED |
             SDL_RENDERER_PRESENTVSYNC);
     assert(ren_ != nullptr);
-    SDL_SetRenderDrawColor(ren_, 0xEF, 0xEF, 0xEF, 0xFF);
+
+    SDL_SetRenderDrawBlendMode(ren_, SDL_BLENDMODE_BLEND);
 
     run_ = 1;
 }

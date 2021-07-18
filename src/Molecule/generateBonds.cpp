@@ -11,8 +11,8 @@ void Molecule::generateBonds() {
         auto* const a = i->second;
         for (auto j = next(i); j != atoms_.end(); ++j) {
             auto* const b = j->second;
-            if (len(a->pos_ - b->pos_) < (atomRadii[sfac_[a->type_]]
-                    + atomRadii[sfac_[a->type_]])) {
+            if (len(a->pos_ - b->pos_) - (atomRadii[sfac_[a->type_]]
+                    + atomRadii[sfac_[a->type_]]) < 0.4) {
                 insert(new Bond(a, b));
             }
         }
