@@ -19,11 +19,17 @@ class Engine {
         auto toScreenCoords(const vec& v) const -> std::pair<int, int>;
 
     private:
+        void inputEvent();
+        void inputKeyboard();
+        void inputMouse();
+
         SDL_Window* win_ = nullptr;
         SDL_Renderer* ren_ = nullptr;
         bool run_;
         double ZNEAR_ = 1.;
         std::pair<int, int> screen_size_;
+
+        Molecule* molecule_;
 
         vec camera_pos_ = {0., 0., 5.};
 

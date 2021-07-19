@@ -19,11 +19,14 @@ class Molecule {
         void load(const std::string& filename);
         void insert(Atom* const atom);
         void insert(Bond* const bond);
+        void sortZ(const Engine& engine);
+        auto getZAtoms() const -> const std::vector<Atom*>&;
 
     private:
         void generateBonds();
 
         std::map<std::string, Atom*> atoms_;
+        std::vector<Atom*> z_atoms_;
         std::list<Bond*> bonds_;
         std::vector<std::string> sfac_;
 };

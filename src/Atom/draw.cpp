@@ -15,8 +15,7 @@ void Atom::draw(const Engine& engine, const std::vector<std::string>& sfac) cons
     auto v = project(engine);
     const auto& c = atomColours[sfac[type_]];
 
-    const double z = (engine.matrix_ * pos_ - engine.camera_pos_).z;
-    const int r = 20. * exp(-z / 8.);
+    const int r = getDrawingRadius(engine);
     for (int dx = -2 * r; dx < 2 * r; ++dx) {
         for (int dy = -2 * r; dy < 2 * r; ++dy) {
             if (dx * dx + dy * dy - r * r < r/2) {

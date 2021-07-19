@@ -1,5 +1,7 @@
 #include "Engine.h"
 
+#include "../Molecule/Molecule.h"
+
 #include <cassert>
 
 Engine::Engine() {
@@ -20,6 +22,8 @@ Engine::Engine() {
 
     SDL_SetRenderDrawBlendMode(ren_, SDL_BLENDMODE_BLEND);
 
+    molecule_ = new Molecule("/home/kotfind/prog/c++/molecule/res/f18.ort");
+
     run_ = 1;
 }
 
@@ -28,4 +32,6 @@ Engine::~Engine() {
     SDL_DestroyRenderer(ren_);
 
     SDL_Quit();
+
+    delete molecule_;
 }

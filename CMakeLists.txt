@@ -18,12 +18,15 @@ add_executable(main
     src/Atom/project.cpp
     src/Atom/Atom.cpp
     src/Atom/visible.cpp
+    src/Atom/getDrawingRadiuse.cpp
     src/Atom/draw.cpp
     src/Matrix/unit.cpp
     src/Matrix/Matrix.cpp
     src/Matrix/rotation.cpp
+    src/Molecule/sortZ.cpp
     src/Molecule/insert.cpp
     src/Molecule/generateBonds.cpp
+    src/Molecule/getZAtoms.cpp
     src/Molecule/Molecule.cpp
     src/Molecule/load.cpp
     src/Molecule/draw.cpp

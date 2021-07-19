@@ -6,7 +6,6 @@
 #include <iostream>
 
 void Engine::start() {
-    const auto* const molecule = new Molecule("/home/kotfind/prog/c++/molecule/res/f18.ort");
     while (run_) {
         input();
 
@@ -25,12 +24,12 @@ void Engine::start() {
         Bond ybond(&zero, &yaxis);
         Bond zbond(&zero, &zaxis);
         
-        molecule->draw(*this);
+        molecule_->sortZ(*this);
+        molecule_->draw(*this);
         xbond.draw(*this);
         ybond.draw(*this);
         zbond.draw(*this);
 
         SDL_RenderPresent(ren_);
     }
-    delete molecule;
 }

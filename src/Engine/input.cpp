@@ -1,13 +1,35 @@
 #include "Engine.h"
 
-void Engine::input() {
-    SDL_Event event;
-    while (SDL_PollEvent(&event)) {
-        if (event.type == SDL_QUIT) {
+#include "../Molecule/Molecule.h"
+#include "../Atom/Atom.h"
+
+#include <iostream>
+#include <vector>
+
+void Engine::inputEvent() {
+    SDL_Event e;
+    while (SDL_PollEvent(&e)) {
+        if (e.type == SDL_QUIT) {
             run_ = 0;
+        } else if (e.type == SDL_MOUSEBUTTONDOWN) {
+            int mx, my;
+            SDL_GetMouseState(&mx, &my);
+            const auto& atoms = molecule_->getZAtoms();
+            for (int i = atoms.size() - 1; i >= 0; --i) {
+                const auto& [ax, ay] = atoms[i]->project(*this);
+                const int r = atoms[i]->getDrawingRadius(*this);
+                const int x = ax - mx;
+                const int y = ay - my;
+                if (x * 1ll * x + y * 1ll * y < r * 1ll * r) {
+                    std::cout << atoms[i]->name_ << std::endl;
+                    break;
+                }
+            }
         }
     }
+}
 
+void Engine::inputKeyboard() {
     const auto* key = SDL_GetKeyboardState(nullptr);
     bool a, b;
 
@@ -70,4 +92,13 @@ void Engine::input() {
     if (key[SDL_SCANCODE_R]) {
         matrix_ = Matrix::unit(3);
     }
+}
+
+void Engine::inputMouse() {
+}
+
+void Engine::input() {
+    inputEvent();
+    inputKeyboard();
+    inputMouse();
 }
