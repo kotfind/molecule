@@ -5,9 +5,10 @@
 
 #include <iostream>
 #include <vector>
+#include <math.h>
 
 void Select(Atom* sel[3], Atom* atom) {
-    std::cout << atom->name_ << std::endl;
+    std::cout << atom->name_ << '\n' << std::endl;
     int j = 0;
     for (; j < 3 && sel[j]; ++j);
     if (j == 3) {
@@ -19,12 +20,30 @@ void Select(Atom* sel[3], Atom* atom) {
     }
 
     if (sel[2] != nullptr) {
-        std::cout << sel[1]->name_ << ' ' << sel[2]->name_ << ' ' << len(sel[1]->pos_ - sel[2]->pos_) << std::endl;
-        std::cout << sel[0]->name_ << ' ' << sel[2]->name_ << ' ' << len(sel[0]->pos_ - sel[2]->pos_) << std::endl;
+        const vec a = sel[0]->pos_ - sel[1]->pos_;
+        const vec b = sel[2]->pos_ - sel[1]->pos_;
+        std::cout
+            << sel[1]->name_ << '\t'
+            << sel[2]->name_ << '\t'
+            << len(a) << std::endl;
+        std::cout
+            << sel[0]->name_ << '\t'
+            << sel[2]->name_ << '\t'
+            << len(b) << std::endl;
+        std::cout
+            << "ANGL:\t"
+            << sel[0]->name_ << '\t'
+            << sel[1]->name_ << '\t'
+            << sel[2]->name_ << '\t'
+            << acos(dot(a, b) / len(a) / len(b)) * 180 / M_PI << std::endl;
+        std::cout << std::endl;
     } else if (sel[1] != nullptr) {
-        std::cout << sel[0]->name_ << ' ' << sel[1]->name_ << ' ' << len(sel[0]->pos_ - sel[1]->pos_) << std::endl;
+        std::cout
+            << sel[0]->name_ << '\t'
+            << sel[1]->name_ << '\t'
+            << len(sel[0]->pos_ - sel[1]->pos_) << std::endl;
+        std::cout << std::endl;
     }
-    std::cout << std::endl;
 }
 
 void Engine::inputEvent() {

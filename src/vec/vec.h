@@ -28,6 +28,8 @@ vec operator-(const vec& lhs, const vec& rhs);
 vec operator*(const vec& lhs, const double& rhs);
 vec operator*(const double& lhs, const vec& rhs);
 vec operator/(const vec& lhs, const double& rhs);
+
 double len(const vec& v);
+double dot(const vec& lhs, const vec& rhs);
 
 #endif

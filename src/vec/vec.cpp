@@ -76,3 +76,7 @@ vec operator/(const vec& lhs, const double& rhs) {
 double len(const vec& v) {
     return sqrt(v.x * v.x + v.y * v.y + v.z * v.z);
 }
+
+double dot(const vec& lhs, const vec& rhs) {
+    return lhs.x * rhs.x + lhs.y * rhs.y + lhs.z * rhs.z;
+}
