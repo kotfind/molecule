@@ -6,6 +6,27 @@
 #include <iostream>
 #include <vector>
 
+void Select(Atom* sel[3], Atom* atom) {
+    std::cout << atom->name_ << std::endl;
+    int j = 0;
+    for (; j < 3 && sel[j]; ++j);
+    if (j == 3) {
+        sel[0] = sel[1];
+        sel[1] = sel[2];
+        sel[2] = atom;
+    } else {
+        sel[j] = atom;
+    }
+
+    if (sel[2] != nullptr) {
+        std::cout << sel[1]->name_ << ' ' << sel[2]->name_ << ' ' << len(sel[1]->pos_ - sel[2]->pos_) << std::endl;
+        std::cout << sel[0]->name_ << ' ' << sel[2]->name_ << ' ' << len(sel[0]->pos_ - sel[2]->pos_) << std::endl;
+    } else if (sel[1] != nullptr) {
+        std::cout << sel[0]->name_ << ' ' << sel[1]->name_ << ' ' << len(sel[0]->pos_ - sel[1]->pos_) << std::endl;
+    }
+    std::cout << std::endl;
+}
+
 void Engine::inputEvent() {
     SDL_Event e;
     while (SDL_PollEvent(&e)) {
@@ -27,16 +48,7 @@ void Engine::inputEvent() {
                 const int x = ax - mx;
                 const int y = ay - my;
                 if (x * 1ll * x + y * 1ll * y < r * 1ll * r) {
-                    std::cout << atoms[i]->name_ << std::endl;
-                    int j = 0;
-                    for (; j < 3 && selected_[j]; ++j);
-                    if (j == 3) {
-                        selected_[0] = selected_[1];
-                        selected_[1] = selected_[2];
-                        selected_[2] = atoms[i];
-                    } else {
-                        selected_[j] = atoms[i];
-                    }
+                    Select(selected_, atoms[i]);
                     break;
                 }
             }
