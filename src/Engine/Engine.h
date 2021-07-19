@@ -43,6 +43,8 @@ class Engine {
 
         Matrix matrix_ = Matrix::unit(3);
 
+        Atom* selected_[3] = {nullptr, nullptr, nullptr};
+
     friend Atom;
     friend Bond;
     friend Molecule;

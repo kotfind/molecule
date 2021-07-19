@@ -11,6 +11,12 @@ void Engine::inputEvent() {
     while (SDL_PollEvent(&e)) {
         if (e.type == SDL_QUIT) {
             run_ = 0;
+        } else if (e.type == SDL_KEYDOWN) {
+            if (e.key.keysym.sym == SDLK_ESCAPE) {
+                for (int i = 0; i < 3; ++i) {
+                    selected_[i] = nullptr;
+                }
+            }
         } else if (e.type == SDL_MOUSEBUTTONDOWN) {
             int mx, my;
             SDL_GetMouseState(&mx, &my);
@@ -22,6 +28,15 @@ void Engine::inputEvent() {
                 const int y = ay - my;
                 if (x * 1ll * x + y * 1ll * y < r * 1ll * r) {
                     std::cout << atoms[i]->name_ << std::endl;
+                    int j = 0;
+                    for (; j < 3 && selected_[j]; ++j);
+                    if (j == 3) {
+                        selected_[0] = selected_[1];
+                        selected_[1] = selected_[2];
+                        selected_[2] = atoms[i];
+                    } else {
+                        selected_[j] = atoms[i];
+                    }
                     break;
                 }
             }
