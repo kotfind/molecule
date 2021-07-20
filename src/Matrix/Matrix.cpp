@@ -22,6 +22,17 @@ Matrix::Matrix(const std::vector<std::vector<double>>& m) {
     }
 }
 
+Matrix& Matrix::operator=(const Matrix& m) {
+    resize(m.size());
+    for (size_t i = 0; i < m.size(); ++i) {
+        (*this)[i].resize(m[0].size());
+        for (size_t j = 0; j < m[0].size(); ++j) {
+            (*this)[i][j] = m[i][j];
+        }
+    }
+    return *this;
+}
+
 Matrix& Matrix::operator*=(const Matrix& rhs) {
     *this = *this * rhs;
     return *this;

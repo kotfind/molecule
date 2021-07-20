@@ -18,6 +18,7 @@ class Matrix : public std::vector<std::vector<double>> {
         static Matrix yrotation(const double& angle);
         static Matrix zrotation(const double& angle);
 
+        Matrix& operator=(const Matrix& rhs);
         Matrix& operator*=(const Matrix& rhs);
 
         operator vec();

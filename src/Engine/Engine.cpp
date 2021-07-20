@@ -22,7 +22,7 @@ Engine::Engine() {
 
     SDL_SetRenderDrawBlendMode(ren_, SDL_BLENDMODE_BLEND);
 
-    molecule_ = new Molecule("/home/kotfind/prog/c++/molecule/res/f18.ort");
+    molecule_ = new Molecule("/home/kotfind/prog/c++/molecule/res/f18.ins");
 
     run_ = 1;
 }
