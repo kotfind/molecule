@@ -26,7 +26,7 @@ add_executable(main
     src/Molecule/sortZ.cpp
     src/Molecule/insert.cpp
     src/Molecule/generateBonds.cpp
-    src/Molecule/getZAtoms.cpp
+    src/Molecule/getAtoms.cpp
     src/Molecule/Molecule.cpp
     src/Molecule/load.cpp
     src/Molecule/draw.cpp

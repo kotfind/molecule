@@ -17,6 +17,9 @@ void Molecule::load(const string& filename) {
         if (line.back() == '\r') {
             line.pop_back();
         }
+        if (line.empty()) {
+            continue;
+        }
         while (line.back() == '=') {
             string nextline;
             getline(fin, nextline);
@@ -64,10 +67,6 @@ void Molecule::load(const string& filename) {
         } else if (cmd == "AFIX") {
         } else if (cmd == "HKLF") {
         } else if (cmd == "LINK") {
-            string a, b;
-            ss >> a >> b;
-            cout << ">>" << a << ' ' << b << endl;
-            insert(new Bond(atoms_[a], atoms_[b]));
         } else {
             const string& name = cmd;
             int type;

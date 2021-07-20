@@ -20,13 +20,13 @@ class Molecule {
         void insert(Atom* const atom);
         void insert(Bond* const bond);
         void sortZ(const Engine& engine);
-        auto getZAtoms() const -> const std::vector<Atom*>&;
+        auto getAtoms() const -> const std::vector<Atom*>&;
+        void applySymm();
 
     private:
         void generateBonds();
 
-        std::map<std::string, Atom*> atoms_;
-        std::vector<Atom*> z_atoms_;
+        std::vector<Atom*> atoms_;
         std::list<Bond*> bonds_;
         std::vector<std::string> sfac_;
 };

@@ -60,7 +60,7 @@ void Engine::inputEvent() {
         } else if (e.type == SDL_MOUSEBUTTONDOWN) {
             int mx, my;
             SDL_GetMouseState(&mx, &my);
-            const auto& atoms = molecule_->getZAtoms();
+            const auto& atoms = molecule_->getAtoms();
             for (int i = atoms.size() - 1; i >= 0; --i) {
                 const auto& [ax, ay] = atoms[i]->project(*this);
                 const int r = atoms[i]->getDrawingRadius(*this);

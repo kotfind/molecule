@@ -11,7 +11,7 @@ Molecule::Molecule(const std::string& filename)
 }
 
 Molecule::~Molecule() {
-    for (const auto& [name, atom] : atoms_) {
+    for (Atom* atom : atoms_) {
         delete atom;
     }
     for (Bond* const bond : bonds_) {

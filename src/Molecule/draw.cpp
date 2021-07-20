@@ -8,7 +8,7 @@ void Molecule::draw(const Engine& engine) const {
     for (Bond* const bond : bonds_) {
         bond->draw(engine);
     }
-    for (Atom* const atom : z_atoms_) {
+    for (Atom* const atom : atoms_) {
         atom->draw(engine, sfac_);
     }
 }
