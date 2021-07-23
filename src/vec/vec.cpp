@@ -1,6 +1,7 @@
 #include "vec.h"
 
 #include <math.h>
+#include <cassert>
 
 vec::vec() : vec(0) {}
 vec::vec(const double& v) : vec(v, v, v) {}
@@ -13,8 +14,8 @@ std::istream& operator>>(std::istream& in, vec& v) {
     return in;
 }
 
-std::ostream& operator<<(std::ostream& out, vec& v) {
-    out << v.x << ' ' << v.y << ' ' << v.z;
+std::ostream& operator<<(std::ostream& out, const vec& v) {
+    out << v.x << '\n' << v.y << '\n' << v.z;
     return out;
 }
 
@@ -51,6 +52,24 @@ vec& vec::operator/=(const double& v) {
     y /= v;
     z /= v;
     return *this;
+}
+
+double& vec::operator[](const size_t& i) {
+    assert(i < 3);
+    if (i == 0)
+        return x;
+    else if (i == 1)
+        return y;
+    else
+        return z;
+}
+
+const double& vec::operator[](const size_t& i) const {
+    return (*this)[i];
+}
+
+bool operator==(const vec& lhs, const vec& rhs) {
+    return (lhs.x == rhs.x) && (lhs.y == rhs.y) && (lhs.z == rhs.z);
 }
 
 vec operator+(const vec& lhs, const vec& rhs) {

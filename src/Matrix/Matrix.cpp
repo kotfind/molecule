@@ -1,6 +1,7 @@
 #include "Matrix.h"
 
 #include <cassert>
+#include <iostream>
 
 Matrix::Matrix(const vec& v)
     : Matrix(std::vector<std::vector<double>>{{v.x}, {v.y}, {v.z}}) {}
@@ -20,6 +21,11 @@ Matrix::Matrix(const std::vector<std::vector<double>>& m) {
             (*this)[i][j] = m[i][j];
         }
     }
+}
+
+Matrix::Matrix(const Matrix& m) 
+    : std::vector<std::vector<double>>() {
+    *this = m;
 }
 
 Matrix& Matrix::operator=(const Matrix& m) {
@@ -43,6 +49,30 @@ Matrix::operator vec() {
     return {(*this)[0][0], (*this)[1][0], (*this)[2][0]};
 }
 
+bool operator==(const Matrix& lhs, const Matrix& rhs) {
+    assert(lhs.size() == rhs.size() && lhs[0].size() == rhs[0].size());
+    for (int i = 0; i < lhs.size(); ++i) {
+        for (int j = 0; j < lhs[0].size(); ++j) {
+            if (lhs[i][j] != rhs[i][j]) {
+                return 0;
+            }
+        }
+    }
+    return 1;
+}
+
+std::ostream& operator<<(std::ostream& out, const Matrix& m) {
+    for (int i = 0; i < m.size(); ++i) {
+        for (int j = 0; j < m[0].size(); ++j) {
+            out << m[i][j] << ' ';
+        }
+        if (i + 1 != m.size()) {
+            out << '\n';
+        }
+    }
+    return out;
+}
+
 Matrix operator*(const Matrix& lhs, const Matrix& rhs) {
     assert(lhs[0].size() == rhs.size());
     const size_t n = lhs.size();
@@ -54,6 +84,16 @@ Matrix operator*(const Matrix& lhs, const Matrix& rhs) {
             for (size_t k = 0; k < l; ++k) {
                 ans[i][j] += lhs[i][k] * rhs[k][j];
             }
+        }
+    }
+    return ans;
+}
+
+std::size_t std::hash<Matrix>::operator()(const Matrix& m) const noexcept {
+    size_t ans = 0;
+    for (size_t i = 0; i < m.size(); ++i) {
+        for (size_t j = 0; j < m[0].size(); ++j) {
+            ans += m[i][j] * i * j;
         }
     }
     return ans;

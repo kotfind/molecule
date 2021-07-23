@@ -2,6 +2,7 @@
 
 #include <vector>
 #include <unordered_map>
+#include <iostream>
 
 extern std::unordered_map<std::string, std::tuple<char, char, char>> atomColours;
 extern std::unordered_map<std::string, double> atomRadii;

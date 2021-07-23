@@ -17,11 +17,16 @@ struct vec {
     vec& operator*=(const double& v);
     vec& operator/=(const double& v);
 
+    double& operator[](const size_t& i);
+    const double& operator[](const size_t& i) const;
+
     double x, y, z;
 };
 
+bool operator==(const vec& lhs, const vec& rhs);
+
 std::istream& operator>>(std::istream& in, vec& v);
-std::ostream& operator<<(std::ostream& out, vec& v);
+std::ostream& operator<<(std::ostream& out, const vec& v);
 
 vec operator+(const vec& lhs, const vec& rhs);
 vec operator-(const vec& lhs, const vec& rhs);

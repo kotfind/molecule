@@ -15,6 +15,8 @@ set(CMAKE_EXPORT_COMPILE_COMMANDS on)
 
 add_executable(main
     src/atomValues.cpp
+    src/Symm/apply.cpp
+    src/Symm/Symm.cpp
     src/Atom/project.cpp
     src/Atom/Atom.cpp
     src/Atom/visible.cpp
@@ -24,7 +26,10 @@ add_executable(main
     src/Matrix/Matrix.cpp
     src/Matrix/rotation.cpp
     src/Molecule/sortZ.cpp
+    src/Molecule/applySymms.cpp
     src/Molecule/insert.cpp
+    src/Molecule/generateSymms.cpp
+    src/Molecule/applyCell.cpp
     src/Molecule/generateBonds.cpp
     src/Molecule/getAtoms.cpp
     src/Molecule/Molecule.cpp

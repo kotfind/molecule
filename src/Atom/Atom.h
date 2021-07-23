@@ -18,9 +18,9 @@ struct Atom {
     bool visible(const Engine& engine) const;
     int getDrawingRadius(const Engine& engine) const;
 
-    const std::string name_;
-    const int type_;
-    const vec pos_;
+    std::string name_;
+    int type_;
+    vec pos_;
 };
 
 #endif

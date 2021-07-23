@@ -12,7 +12,6 @@ using namespace std;
 void Molecule::load(const string& filename) {
     ifstream fin(filename);
     string line;
-    Matrix cell = Matrix::unit(3);
     while (getline(fin, line)) {
         if (line.back() == '\r') {
             line.pop_back();
@@ -37,7 +36,7 @@ void Molecule::load(const string& filename) {
             b *= M_PI / 180;
             c *= M_PI / 180;
             const double n2 = cos(a) - cos(c) * cos(b) / sin(c);
-            cell = Matrix({
+            cell_ = Matrix({
                 {szx, szy * cos(c), szz * cos(b)},
                 {0, szy * sin(c), szz * n2},
                 {0, 0, szz * sqrt(sin(b) * sin(b) - n2 * n2)},
@@ -53,7 +52,16 @@ void Molecule::load(const string& filename) {
         } else if (cmd == "UNDO") {
         } else if (cmd == "ZERR") {
         } else if (cmd == "LATT") {
+            int x;
+            ss >> x;
+            if (x > 0) {
+                std::string s = "-X, -Y, -Z";
+                symms_.insert(new Symm(s));
+            }
         } else if (cmd == "SYMM") {
+            string s;
+            getline(ss, s);
+            symms_.insert(new Symm(s));
         } else if (cmd == "UNIT") {
         } else if (cmd == "L.S.") {
         } else if (cmd == "LIST") {
@@ -74,7 +82,6 @@ void Molecule::load(const string& filename) {
             --type;
             vec pos;
             ss >> pos;
-            pos = cell * pos;
             insert(new Atom(name, type, pos));
         }
     }
