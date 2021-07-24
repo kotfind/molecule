@@ -28,10 +28,4 @@ bool operator==(const Symm& lhs, const Symm& rhs);
 
 Symm operator*(const Symm& lhs, const Symm& rhs);
 
-namespace std {
-    template<> struct hash<Symm> {
-        std::size_t operator()(const Symm& symm) const noexcept;
-    };
-};
-
 #endif

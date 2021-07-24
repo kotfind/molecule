@@ -23,8 +23,6 @@ class Matrix : public std::vector<std::vector<double>> {
         Matrix& operator*=(const Matrix& rhs);
 
         operator vec();
-
-    friend struct std::hash<Matrix>;
 };
 
 bool operator==(const Matrix& lhs, const Matrix& rhs);
@@ -32,11 +30,5 @@ bool operator==(const Matrix& lhs, const Matrix& rhs);
 std::ostream& operator<<(std::ostream& out, const Matrix& m);
 
 Matrix operator*(const Matrix& lhs, const Matrix& rhs);
-
-namespace std {
-    template<> struct hash<Matrix> {
-        std::size_t operator()(const Matrix& m) const noexcept;
-    };
-};
 
 #endif

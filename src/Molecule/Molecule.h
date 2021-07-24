@@ -10,7 +10,6 @@
 #include <list>
 #include <string>
 #include <vector>
-#include <unordered_set>
 
 class Engine;
 
@@ -25,6 +24,8 @@ class Molecule {
         void sortZ(const Engine& engine);
         auto getAtoms() const -> const std::vector<Atom*>&;
 
+        bool canBind(const Atom& lhs, const Atom& rhs) const;
+
     private:
         void applyCell();
         void applySymms();
@@ -35,10 +36,9 @@ class Molecule {
         std::vector<Atom*> atoms_;
         std::list<Bond*> bonds_;
         std::vector<std::string> sfac_;
-        std::unordered_set<Symm*> symms_;
+        std::list<Symm*> symms_;
 
         Matrix cell_;
-
 };
 
 #endif

@@ -70,7 +70,3 @@ bool operator==(const Symm& lhs, const Symm& rhs) {
 Symm operator*(const Symm& lhs, const Symm& rhs) {
     return {lhs.m_ * rhs.m_, lhs.c_ + rhs.c_};
 }
-
-std::size_t std::hash<Symm>::operator()(const Symm& symm) const noexcept {
-    return hash<Matrix>()(symm.m_) + hash<Matrix>()(symm.c_);
-}

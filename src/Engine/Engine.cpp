@@ -5,6 +5,8 @@
 #include <cassert>
 
 Engine::Engine() {
+    molecule_ = new Molecule("/home/kotfind/prog/c++/molecule/res/tria.ins");
+
     assert(SDL_Init(SDL_INIT_TIMER |
                     SDL_INIT_VIDEO |
                     SDL_INIT_EVENTS) == 0);
@@ -21,8 +23,6 @@ Engine::Engine() {
     assert(ren_ != nullptr);
 
     SDL_SetRenderDrawBlendMode(ren_, SDL_BLENDMODE_BLEND);
-
-    molecule_ = new Molecule("/home/kotfind/prog/c++/molecule/res/circulen.ins");
 
     run_ = 1;
 }

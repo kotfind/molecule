@@ -88,13 +88,3 @@ Matrix operator*(const Matrix& lhs, const Matrix& rhs) {
     }
     return ans;
 }
-
-std::size_t std::hash<Matrix>::operator()(const Matrix& m) const noexcept {
-    size_t ans = 0;
-    for (size_t i = 0; i < m.size(); ++i) {
-        for (size_t j = 0; j < m[0].size(); ++j) {
-            ans += m[i][j] * i * j;
-        }
-    }
-    return ans;
-}

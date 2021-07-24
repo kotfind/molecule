@@ -9,6 +9,7 @@
 #include <vector>
 
 class Engine;
+class Molecule;
 
 struct Atom {
     Atom(const std::string& name, int type, const vec& pos);

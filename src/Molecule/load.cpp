@@ -56,12 +56,12 @@ void Molecule::load(const string& filename) {
             ss >> x;
             if (x > 0) {
                 std::string s = "-X, -Y, -Z";
-                symms_.insert(new Symm(s));
+                symms_.push_back(new Symm(s));
             }
         } else if (cmd == "SYMM") {
             string s;
             getline(ss, s);
-            symms_.insert(new Symm(s));
+            symms_.push_back(new Symm(s));
         } else if (cmd == "UNIT") {
         } else if (cmd == "L.S.") {
         } else if (cmd == "LIST") {

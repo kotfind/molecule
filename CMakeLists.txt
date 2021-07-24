@@ -35,6 +35,7 @@ add_executable(main
     src/Molecule/Molecule.cpp
     src/Molecule/load.cpp
     src/Molecule/draw.cpp
+    src/Molecule/canBind.cpp
     src/main.cpp
     src/Bond/draw.cpp
     src/Bond/Bond.cpp
