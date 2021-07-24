@@ -18,7 +18,7 @@ Molecule::~Molecule() {
     for (Bond* const bond : bonds_) {
         delete bond;
     }
-    for (Symm* const symm : symms_) {
-        delete symm;
-    }
+    // for (Symm* const symm : symms_) {
+    //     delete symm;
+    // }
 }

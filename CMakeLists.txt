@@ -3,7 +3,7 @@ cmake_minimum_required(VERSION 3.1)
 project(Molecule)
 
 find_library(SDL2_LIB SDL2)
-find_library(SDL2_IMG_LIB SDL2_image)
+find_library(SDL2_TTF_LIB SDL2_ttf)
 
 set(CMAKE_CXX_STANDARD 20)
 set(CMAKE_CXX_STANDARD_REQUIRED on)
@@ -46,4 +46,4 @@ add_executable(main
     src/vec/vec.cpp
     )
 
-target_link_libraries(main ${SDL2_LIB} ${SDL2_IMG_LIB})
+target_link_libraries(main ${SDL2_LIB} ${SDL2_TTF_LIB})

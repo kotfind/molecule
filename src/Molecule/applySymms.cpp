@@ -14,7 +14,7 @@ void Molecule::applySymms() {
                 for (int i = 0; i < 3; ++i) {
                     a->pos_[i] = fmod(a->pos_[i], 1.);
                 }
-                a->name_ += "_COPY";
+                a->name_ += "*";
 
                 bool canCreate = 0;
                 for (Atom* at : atoms_) {

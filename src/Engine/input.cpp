@@ -56,6 +56,8 @@ void Engine::inputEvent() {
                 for (int i = 0; i < 3; ++i) {
                     selected_[i] = nullptr;
                 }
+            } else if (e.key.keysym.sym == SDLK_l) {
+                show_atom_lables_ ^= 1;
             }
         } else if (e.type == SDL_MOUSEBUTTONDOWN) {
             int mx, my;
