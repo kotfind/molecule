@@ -26,17 +26,17 @@ void Atom::printBounds(const std::list<Bond*>& bonds) const {
     std::cout << '\n';
     std::cout << "ANGLEs to " << name_ << ":\n";
     std::cout << "\\\t";
-    for (int j = n - 1; j >= 0; --j) {
+    for (int j = n - 1; j > 0; --j) {
         std::cout << a[j]->name_ << '\t';
     }
     std::cout << '\n';
-    std::cout << std::fixed << std::setprecision(4);
-    for (int i = 0; i < n; ++i) {
+    std::cout << std::fixed << std::setprecision(3);
+    for (int i = 0; i < n - 1; ++i) {
         std::cout << a[i]->name_ << '\t';
-        for (int j = n - 1; j >= 0; --j) {
+        for (int j = n - 1; j > i; --j) {
             const vec u = a[i]->pos_ - this->pos_;
             const vec v = a[j]->pos_ - this->pos_;
-            std::cout << acos(dot(u, v) / len(u) / len(v)) << '\t';
+            std::cout << acos(dot(u, v) / len(u) / len(v)) * 180 / M_PI << '\t';
         }
         std::cout << '\n';
     }
