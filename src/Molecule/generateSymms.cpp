@@ -5,7 +5,6 @@
 
 void Molecule::generateSymms() {
     std::list<Symm*> new_symms;
-    new_symms.insert(new_symms.end(), symms_.begin(), symms_.end());
     do {
         symms_.insert(symms_.end(), new_symms.begin(), new_symms.end());
         new_symms.clear();

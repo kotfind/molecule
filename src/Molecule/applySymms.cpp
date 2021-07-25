@@ -12,7 +12,7 @@ void Molecule::applySymms() {
                 Atom* a = new Atom(*atom);
                 a->pos_ = symm->apply(a->pos_);
                 for (int i = 0; i < 3; ++i) {
-                    a->pos_[i] = fmod(a->pos_[i], 1.);
+                    a->pos_[i] = fmod(a->pos_[i] + 1., 1.);
                 }
                 a->name_ += "*";
 

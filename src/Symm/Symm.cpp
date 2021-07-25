@@ -42,7 +42,7 @@ Symm::Symm(std::string& s) : m_(3) {
     for (char c : s) {
         if (c == ',') {
             if (!buffer.empty()) {
-                c_[row] = fmod(std::stod(buffer), 1.);
+                c_[row] = fmod(std::stod(buffer) + 1., 1.);
                 buffer = "";
             }
             ++row;
@@ -54,7 +54,7 @@ Symm::Symm(std::string& s) : m_(3) {
 
 Symm::Symm(const Matrix& m, const vec& c) : m_(m), c_(c) {
     for (int i = 0; i < 3; ++i) {
-        c_[i] = fmod(c_[i], 1.);
+        c_[i] = fmod(c_[i] + 1., 1.);
     }
 }
 
