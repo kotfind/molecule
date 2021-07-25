@@ -19,7 +19,7 @@ void Engine::inputEvent() {
                 }
             } else if (e.key.keysym.sym == SDLK_l) {
                 show_atom_lables_ ^= 1;
-            } else if (e.key.keysym.sym == SDLK_v) {
+            } else if (e.key.keysym.sym == SDLK_p) {
                 perspective_ ^= 1;
             }
         } else if (e.type == SDL_MOUSEBUTTONDOWN) {

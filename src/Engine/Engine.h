@@ -47,8 +47,9 @@ class Engine {
         Atom* selected_ = nullptr;
 
         TTF_Font* font_;
-        bool show_atom_lables_ = 0;
+        TTF_Font* great_font_;
 
+        bool show_atom_lables_ = 0;
         bool perspective_ = 1;
 
     friend Atom;

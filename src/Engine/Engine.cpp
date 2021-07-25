@@ -24,6 +24,7 @@ Engine::Engine() {
 
     TTF_Init();
     font_ = TTF_OpenFont("/usr/share/fonts/TTF/DejaVuSerif.ttf", 16);
+    great_font_ = TTF_OpenFont("/usr/share/fonts/TTF/DejaVuSerif-Bold.ttf", 25);
 
     SDL_SetRenderDrawBlendMode(ren_, SDL_BLENDMODE_BLEND);
 
@@ -31,6 +32,7 @@ Engine::Engine() {
 }
 
 Engine::~Engine() {
+    TTF_CloseFont(great_font_);
     TTF_CloseFont(font_);
 
     SDL_DestroyWindow(win_);
