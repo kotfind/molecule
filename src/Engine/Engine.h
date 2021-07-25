@@ -49,6 +49,8 @@ class Engine {
         TTF_Font* font_;
         bool show_atom_lables_ = 0;
 
+        bool perspective_ = 1;
+
     friend Atom;
     friend Bond;
     friend Molecule;
