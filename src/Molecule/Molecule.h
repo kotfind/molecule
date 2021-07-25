@@ -25,6 +25,8 @@ class Molecule {
 
         bool canBind(const Atom& lhs, const Atom& rhs) const;
 
+        void printData() const;
+
     private:
         void applyCell();
         void applySymms();

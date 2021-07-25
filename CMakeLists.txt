@@ -28,6 +28,7 @@ add_executable(main
     src/Matrix/rotation.cpp
     src/Molecule/sortZ.cpp
     src/Molecule/applySymms.cpp
+    src/Molecule/printData.cpp
     src/Molecule/insert.cpp
     src/Molecule/generateSymms.cpp
     src/Molecule/applyCell.cpp

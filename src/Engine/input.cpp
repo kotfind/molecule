@@ -21,6 +21,8 @@ void Engine::inputEvent() {
                 show_atom_lables_ ^= 1;
             } else if (e.key.keysym.sym == SDLK_p) {
                 perspective_ ^= 1;
+            } else if (e.key.keysym.sym == SDLK_i) {
+                molecule_->printData();
             }
         } else if (e.type == SDL_MOUSEBUTTONDOWN) {
             int mx, my;
