@@ -3,29 +3,40 @@
 #include "../Molecule/Molecule.h"
 
 #include <math.h>
-#include <list>
+#include <vector>
 #include <iostream>
+#include <iomanip>
 
 void Atom::printBounds(const std::list<Bond*>& bonds) const {
-    std::list<Atom*> neighbours;
+    std::vector<Atom*> a; // neighbours
     for (Bond* const bond : bonds) {
         if (bond->val_.first == this) {
-            neighbours.push_back(bond->val_.second);
+            a.push_back(bond->val_.second);
         }
         if (bond->val_.second == this) {
-            neighbours.push_back(bond->val_.first);
+            a.push_back(bond->val_.first);
         }
     }
 
-    std::cout << name_ << '\t';
-    for (auto j = prev(neighbours.end()); j != prev(neighbours.end()); j = prev(j)) {
-        std::cout << (*j)->name_ << '\t';
+    const int n = a.size();
+    std::cout << "DISTANCEs to " << name_ << ":\n";
+    for (int i = 0; i < n; ++i) {
+        std::cout << a[i]->name_ << '\t' << len(a[i]->pos_ - pos_) << '\n';
     }
-    std::cout << std::endl;
-    for (auto i = neighbours.begin(); i != prev(neighbours.end()); ++i) {
-        std::cout << (*i)->name_ << '\t';
-        for (auto j = prev(neighbours.end()); j != i; j = prev(j)) {
-            std::cout << acos(dot((*i)->pos_ - this->pos_, (*j)->pos_ - this->pos_) / len((*i)->pos_ - this->pos_) / len((*j)->pos_ - this->pos_)) << '\t';
+    std::cout << '\n';
+    std::cout << "ANGLEs to " << name_ << ":\n";
+    std::cout << "\\\t";
+    for (int j = n - 1; j >= 0; --j) {
+        std::cout << a[j]->name_ << '\t';
+    }
+    std::cout << '\n';
+    std::cout << std::fixed << std::setprecision(4);
+    for (int i = 0; i < n; ++i) {
+        std::cout << a[i]->name_ << '\t';
+        for (int j = n - 1; j >= 0; --j) {
+            const vec u = a[i]->pos_ - this->pos_;
+            const vec v = a[j]->pos_ - this->pos_;
+            std::cout << acos(dot(u, v) / len(u) / len(v)) << '\t';
         }
         std::cout << '\n';
     }
