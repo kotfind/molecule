@@ -18,14 +18,6 @@ void Atom::draw(const Engine& engine, const std::vector<std::string>& sfac) cons
     auto v = project(engine);
     const auto& c = atomColours[sfac[type_]];
 
-    bool selected = 0;
-    for (int i = 0; i < 3; ++i) {
-        if (engine.selected_[i] == this) {
-            selected = 1;
-            break;
-        }
-    }
-
     // Circle
     const int r = getDrawingRadius(engine);
     const int outline = std::max(5, r);
@@ -37,7 +29,7 @@ void Atom::draw(const Engine& engine, const std::vector<std::string>& sfac) cons
                 SDL_SetRenderDrawColor(engine.ren_, get<0>(c), get<1>(c), get<2>(c), (dx * dx + dy * dy + r/2) / 1. / (r * r) * 255);
                 SDL_RenderDrawPoint(engine.ren_,
                     v.first + dx, v.second + dy);
-            } else if (selected && val < outline * outline) {
+            } else if (this == engine.selected_ && val < outline * outline) {
                 SDL_SetRenderDrawColor(engine.ren_, 0xFF, 0x00, 0x00, 0xFF);
                 SDL_RenderDrawPoint(engine.ren_,
                     v.first + dx, v.second + dy);

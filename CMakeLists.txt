@@ -21,6 +21,7 @@ add_executable(main
     src/Atom/Atom.cpp
     src/Atom/visible.cpp
     src/Atom/getDrawingRadiuse.cpp
+    src/Atom/printBounds.cpp
     src/Atom/draw.cpp
     src/Matrix/unit.cpp
     src/Matrix/Matrix.cpp

@@ -44,7 +44,7 @@ class Engine {
 
         Matrix matrix_ = Matrix::unit(3);
 
-        Atom* selected_[3] = {nullptr, nullptr, nullptr};
+        Atom* selected_ = nullptr;
 
         TTF_Font* font_;
         bool show_atom_lables_ = 0;

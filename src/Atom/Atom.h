@@ -7,9 +7,11 @@
 
 #include <string>
 #include <vector>
+#include <list>
 
 class Engine;
 class Molecule;
+class Bond;
 
 struct Atom {
     Atom(const std::string& name, int type, const vec& pos);
@@ -18,6 +20,8 @@ struct Atom {
     void draw(const Engine& engine, const std::vector<std::string>& sfac) const;
     bool visible(const Engine& engine) const;
     int getDrawingRadius(const Engine& engine) const;
+
+    void printBounds(const std::list<Bond*>& bonds) const;
 
     std::string name_;
     int type_;

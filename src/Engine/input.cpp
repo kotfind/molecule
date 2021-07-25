@@ -7,45 +7,6 @@
 #include <vector>
 #include <math.h>
 
-void Select(Atom* sel[3], Atom* atom) {
-    std::cout << atom->name_ << '\n' << std::endl;
-    int j = 0;
-    for (; j < 3 && sel[j]; ++j);
-    if (j == 3) {
-        sel[0] = sel[1];
-        sel[1] = sel[2];
-        sel[2] = atom;
-    } else {
-        sel[j] = atom;
-    }
-
-    if (sel[2] != nullptr) {
-        const vec a = sel[0]->pos_ - sel[1]->pos_;
-        const vec b = sel[2]->pos_ - sel[1]->pos_;
-        std::cout
-            << sel[1]->name_ << '\t'
-            << sel[2]->name_ << '\t'
-            << len(a) << std::endl;
-        std::cout
-            << sel[0]->name_ << '\t'
-            << sel[2]->name_ << '\t'
-            << len(b) << std::endl;
-        std::cout
-            << "ANGL:\t"
-            << sel[0]->name_ << '\t'
-            << sel[1]->name_ << '\t'
-            << sel[2]->name_ << '\t'
-            << acos(dot(a, b) / len(a) / len(b)) * 180 / M_PI << std::endl;
-        std::cout << std::endl;
-    } else if (sel[1] != nullptr) {
-        std::cout
-            << sel[0]->name_ << '\t'
-            << sel[1]->name_ << '\t'
-            << len(sel[0]->pos_ - sel[1]->pos_) << std::endl;
-        std::cout << std::endl;
-    }
-}
-
 void Engine::inputEvent() {
     SDL_Event e;
     while (SDL_PollEvent(&e)) {
@@ -54,7 +15,7 @@ void Engine::inputEvent() {
         } else if (e.type == SDL_KEYDOWN) {
             if (e.key.keysym.sym == SDLK_ESCAPE) {
                 for (int i = 0; i < 3; ++i) {
-                    selected_[i] = nullptr;
+                    selected_ = nullptr;
                 }
             } else if (e.key.keysym.sym == SDLK_l) {
                 show_atom_lables_ ^= 1;
@@ -69,7 +30,8 @@ void Engine::inputEvent() {
                 const int x = ax - mx;
                 const int y = ay - my;
                 if (x * 1ll * x + y * 1ll * y < r * 1ll * r) {
-                    Select(selected_, atoms[i]);
+                    selected_ = atoms[i];
+                    atoms[i]->printBounds(molecule_->bonds_);
                     break;
                 }
             }

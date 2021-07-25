@@ -58,6 +58,10 @@ void Molecule::load(const string& filename) {
                 std::string s = "-X, -Y, -Z";
                 symms_.push_back(new Symm(s));
             }
+            if (x == -2) {
+                std::string s = "X-0.5, Y+0.5, Z+0.5";
+                symms_.push_back(new Symm(s));
+            }
         } else if (cmd == "SYMM") {
             string s;
             getline(ss, s);

@@ -39,6 +39,8 @@ class Molecule {
         std::list<Symm*> symms_;
 
         Matrix cell_;
+
+    friend Engine;
 };
 
 #endif

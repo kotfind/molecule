@@ -32,13 +32,13 @@ void Molecule::applySymms() {
                     delete cell_at;
                 }
                 for (Atom* at : atoms_) {
-                    if (at->pos_ == a->pos_) {
+                    if (len(at->pos_ - a->pos_) < 0.01) {
                         canCreate = 0;
                         break;
                     }
                 }
                 for (Atom* at : new_atoms) {
-                    if (at->pos_ == a->pos_) {
+                    if (len(at->pos_ - a->pos_) < 0.01) {
                         canCreate = 0;
                         break;
                     }
