@@ -1,16 +1,15 @@
 #ifndef MOLCEULE_H
 #define MOLCEULE_H
 
-#include "../Atom/Atom.h"
 #include "../Bond/Bond.h"
 #include "../Symm/Symm.h"
-#include "../Matrix/Matrix.h"
 
 #include <map>
 #include <list>
 #include <string>
 #include <vector>
 
+class Atom;
 class Engine;
 
 class Molecule {

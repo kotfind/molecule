@@ -1,14 +1,14 @@
 #ifndef ENGINE_H
 #define ENGINE_H
 
-#include "../vec/vec.h"
-#include "../Atom/Atom.h"
-#include "../Bond/Bond.h"
 #include "../Matrix/Matrix.h"
 
 #include <SDL2/SDL.h>
 #include <SDL2/SDL_ttf.h>
 
+struct vec;
+class Atom;
+class Bond;
 class Molecule;
 
 class Engine {

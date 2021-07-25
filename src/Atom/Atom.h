@@ -9,9 +9,9 @@
 #include <vector>
 #include <list>
 
-class Engine;
-class Molecule;
 class Bond;
+class Molecule;
+class Engine;
 
 struct Atom {
     Atom(const std::string& name, int type, const vec& pos);
