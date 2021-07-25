@@ -51,8 +51,8 @@ Matrix::operator vec() {
 
 bool operator==(const Matrix& lhs, const Matrix& rhs) {
     assert(lhs.size() == rhs.size() && lhs[0].size() == rhs[0].size());
-    for (int i = 0; i < lhs.size(); ++i) {
-        for (int j = 0; j < lhs[0].size(); ++j) {
+    for (size_t i = 0; i < lhs.size(); ++i) {
+        for (size_t j = 0; j < lhs[0].size(); ++j) {
             if (lhs[i][j] != rhs[i][j]) {
                 return 0;
             }
@@ -62,8 +62,8 @@ bool operator==(const Matrix& lhs, const Matrix& rhs) {
 }
 
 std::ostream& operator<<(std::ostream& out, const Matrix& m) {
-    for (int i = 0; i < m.size(); ++i) {
-        for (int j = 0; j < m[0].size(); ++j) {
+    for (size_t i = 0; i < m.size(); ++i) {
+        for (size_t j = 0; j < m[0].size(); ++j) {
             out << m[i][j] << ' ';
         }
         if (i + 1 != m.size()) {
