@@ -1,7 +1,6 @@
 #include "Matrix.h"
 
 #include <cassert>
-#include <iostream>
 
 Matrix::Matrix(const vec& v)
     : Matrix(std::vector<std::vector<double>>{{v.x}, {v.y}, {v.z}}) {}

@@ -5,15 +5,12 @@
 #include <fstream>
 #include <string>
 #include <sstream>
-#include <iostream>
 #include <cassert>
 
-using namespace std;
-
-void Molecule::load(const string& filename) {
-    ifstream fin(filename);
+void Molecule::load(const std::string& filename) {
+    std::ifstream fin(filename);
     assert(fin.is_open());
-    string line;
+    std::string line;
     while (getline(fin, line)) {
         if (line.empty() || line.front() == '\n' || line.front() == ' ') {
             continue;
@@ -25,13 +22,13 @@ void Molecule::load(const string& filename) {
             continue;
         }
         while (line.back() == '=') {
-            string nextline;
+            std::string nextline;
             getline(fin, nextline);
             line.pop_back();
             line += nextline;
         }
-        stringstream ss(line);
-        string cmd;
+        std::stringstream ss(line);
+        std::string cmd;
         ss >> cmd;
         if (cmd == "TITL") {
         } else if (cmd == "CELL") {
@@ -47,7 +44,7 @@ void Molecule::load(const string& filename) {
                 {0, 0, szz * sqrt(sin(b) * sin(b) - n2 * n2)},
             });
         } else if (cmd == "SFAC") {
-            string name;
+            std::string name;
             while (ss >> name) {
                 sfac_.push_back(name);
             }
@@ -68,7 +65,7 @@ void Molecule::load(const string& filename) {
                 symms_.push_back(new Symm(s));
             }
         } else if (cmd == "SYMM") {
-            string s;
+            std::string s;
             getline(ss, s);
             symms_.push_back(new Symm(s));
         } else if (cmd == "UNIT") {
@@ -85,7 +82,7 @@ void Molecule::load(const string& filename) {
         } else if (cmd == "HKLF") {
         } else if (cmd == "LINK") {
         } else {
-            const string& name = cmd;
+            const std::string& name = cmd;
             int type;
             ss >> type;
             --type;

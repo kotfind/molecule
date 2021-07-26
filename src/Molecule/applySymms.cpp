@@ -1,7 +1,5 @@
 #include "Molecule.h"
 
-#include <iostream>
-
 void Molecule::applySymms() {
     std::list<Atom*> new_atoms;
     do {

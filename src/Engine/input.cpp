@@ -3,7 +3,6 @@
 #include "../Molecule/Molecule.h"
 #include "../Atom/Atom.h"
 
-#include <iostream>
 #include <vector>
 #include <math.h>
 

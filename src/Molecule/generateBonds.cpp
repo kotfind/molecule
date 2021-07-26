@@ -1,7 +1,6 @@
 #include "Molecule.h"
 
 #include <vector>
-#include <iostream>
 
 void Molecule::generateBonds() {
     for (auto i = atoms_.begin(); i != atoms_.end(); ++i) {

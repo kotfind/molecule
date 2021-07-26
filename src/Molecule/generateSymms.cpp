@@ -1,7 +1,6 @@
 #include "Molecule.h"
 
 #include <list>
-#include <iostream>
 
 void Molecule::generateSymms() {
     std::list<Symm*> new_symms;

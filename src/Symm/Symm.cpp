@@ -4,8 +4,7 @@
 #include <algorithm>
 #include <unordered_map>
 #include <math.h>
-
-#include <iostream>
+#include <ostream>
 
 void replace(std::string& s, const std::string& from, const std::string& to) {
     while (s.find(from) != std::string::npos) {

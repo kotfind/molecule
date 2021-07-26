@@ -7,9 +7,7 @@
 #include <vector>
 #include <string>
 #include <unordered_map>
-#include <iostream>
 #include <math.h>
-
 
 extern std::unordered_map<std::string, std::tuple<char, char, char>> atomColours;
 

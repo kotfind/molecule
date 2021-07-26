@@ -3,7 +3,6 @@
 #include "../Molecule/Molecule.h"
 
 #include <SDL2/SDL.h>
-#include <iostream>
 
 void Engine::start() {
     while (run_) {
