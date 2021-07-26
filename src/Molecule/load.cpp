@@ -15,6 +15,9 @@ void Molecule::load(const string& filename) {
     assert(fin.is_open());
     string line;
     while (getline(fin, line)) {
+        if (line.empty() || line.front() == '\n' || line.front() == ' ') {
+            continue;
+        }
         if (line.back() == '\r') {
             line.pop_back();
         }

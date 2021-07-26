@@ -9,5 +9,5 @@ extern std::unordered_map<std::string, double> atomRadii;
 
 bool Molecule::canBind(const Atom& lhs, const Atom& rhs) const {
     return (len(lhs.pos_ - rhs.pos_) - (atomRadii[sfac_[lhs.type_]]
-            + atomRadii[sfac_[rhs.type_]]) < 0.3);
+            + atomRadii[sfac_[rhs.type_]]) < 0.5);
 }
