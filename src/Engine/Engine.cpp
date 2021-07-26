@@ -5,7 +5,7 @@
 #include <cassert>
 
 Engine::Engine() {
-    molecule_ = new Molecule("/home/kotfind/prog/c++/molecule/res/tria.ins");
+    molecule_ = new Molecule("/home/kotfind/prog/c++/molecule/res/schw44.ins");
 
     assert(SDL_Init(SDL_INIT_TIMER |
                     SDL_INIT_VIDEO |

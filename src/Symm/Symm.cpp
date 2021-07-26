@@ -68,5 +68,5 @@ bool operator==(const Symm& lhs, const Symm& rhs) {
 }
 
 Symm operator*(const Symm& lhs, const Symm& rhs) {
-    return {lhs.m_ * rhs.m_, lhs.c_ + rhs.c_};
+    return {lhs.m_ * rhs.m_, lhs.c_ + lhs.m_ * rhs.c_};
 }

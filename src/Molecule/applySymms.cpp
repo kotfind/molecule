@@ -12,10 +12,11 @@ void Molecule::applySymms() {
                 Atom* a = new Atom(*atom);
                 a->pos_ = symm->apply(a->pos_);
                 for (int i = 0; i < 3; ++i) {
-                    a->pos_[i] = fmod(a->pos_[i] + 1., 1.);
+                    // a->pos_[i] = fmod(a->pos_[i] + 1., 1.);
                 }
                 a->name_ += "*";
 
+                // bool canCreate = 1;
                 bool canCreate = 0;
                 for (Atom* at : atoms_) {
                     Atom* cell_a = new Atom(*a);
@@ -32,13 +33,13 @@ void Molecule::applySymms() {
                     delete cell_at;
                 }
                 for (Atom* at : atoms_) {
-                    if (len(at->pos_ - a->pos_) < 0.01) {
+                    if (at->pos_ == a->pos_) {
                         canCreate = 0;
                         break;
                     }
                 }
                 for (Atom* at : new_atoms) {
-                    if (len(at->pos_ - a->pos_) < 0.01) {
+                    if (at->pos_ == a->pos_) {
                         canCreate = 0;
                         break;
                     }

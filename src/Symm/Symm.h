@@ -11,9 +11,9 @@ class Symm {
         Symm(std::string& s);
         Symm(const Matrix& m, const vec& c);
         vec apply(const vec& v) const;
+        Matrix m_; // TODO make private
 
     private:
-        Matrix m_;
         vec c_;
 
     friend struct std::hash<Symm>;
