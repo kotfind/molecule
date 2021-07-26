@@ -33,7 +33,12 @@ void Molecule::load(const std::string& filename) {
         if (cmd == "TITL") {
         } else if (cmd == "CELL") {
             double _, szx, szy, szz, a, b, c;
-            ss >> _ >> szx >> szy >> szz >> a >> b >> c;
+            ss >> _;
+            if (_ == 1) {
+                cell_ = Matrix::unit(3);
+                continue;
+            }
+            ss  >> szx >> szy >> szz >> a >> b >> c;
             a *= M_PI / 180;
             b *= M_PI / 180;
             c *= M_PI / 180;
