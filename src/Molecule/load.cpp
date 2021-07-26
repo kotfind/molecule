@@ -6,11 +6,13 @@
 #include <string>
 #include <sstream>
 #include <iostream>
+#include <cassert>
 
 using namespace std;
 
 void Molecule::load(const string& filename) {
     ifstream fin(filename);
+    assert(fin.is_open());
     string line;
     while (getline(fin, line)) {
         if (line.back() == '\r') {

@@ -5,6 +5,7 @@
 
 #include <SDL2/SDL.h>
 #include <SDL2/SDL_ttf.h>
+#include <string>
 
 struct vec;
 class Atom;
@@ -13,7 +14,7 @@ class Molecule;
 
 class Engine {
     public:
-        Engine();
+        Engine(const std::string& s);
         ~Engine();
         void input();
         void start();

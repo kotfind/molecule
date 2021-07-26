@@ -3,9 +3,10 @@
 #include "../Molecule/Molecule.h"
 
 #include <cassert>
+#include <string>
 
-Engine::Engine() {
-    molecule_ = new Molecule("/home/kotfind/prog/c++/molecule/res/schw44.ins");
+Engine::Engine(const std::string& file) {
+    molecule_ = new Molecule(file);
 
     assert(SDL_Init(SDL_INIT_TIMER |
                     SDL_INIT_VIDEO |
