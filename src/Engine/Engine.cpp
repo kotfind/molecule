@@ -24,8 +24,8 @@ Engine::Engine(const std::string& file) {
     assert(ren_ != nullptr);
 
     TTF_Init();
-    font_ = TTF_OpenFont("/usr/share/fonts/TTF/DejaVuSerif.ttf", 16);
-    great_font_ = TTF_OpenFont("/usr/share/fonts/TTF/DejaVuSerif-Bold.ttf", 25);
+    font_ = TTF_OpenFont("/usr/share/fonts/TTF/MesloLGS-NF-Regular.ttf", 16);
+    great_font_ = TTF_OpenFont("/usr/share/fonts/TTF/MesloLGS-NF-Regular.ttf", 25);
 
     SDL_SetRenderDrawBlendMode(ren_, SDL_BLENDMODE_BLEND);
 
